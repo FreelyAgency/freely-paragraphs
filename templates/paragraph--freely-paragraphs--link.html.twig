@@ -39,10 +39,9 @@
  */
 #}
 {% block paragraph %}
-  <div class="row column freely-paragraph paragraph-image-left-text-right" {{ attributes.addClass(classes) }}>
+  <div class="row column freely-paragraph paragraph-link" {{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="column small-12 medium-6">{{ content.field_image }}</div>
-      <div class="column small-12 medium-6">{{ content.field_text }}</div>
+      {{ content }}
     {% endblock %}
   </div>
 {% endblock paragraph %}
