@@ -1,0 +1,7 @@
+uuid: 907f3414-63a3-4a9e-8673-5b5451357f19
+langcode: cs
+status: true
+dependencies: {  }
+id: link
+label: Odkaz
+behavior_plugins: {  }

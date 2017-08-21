@@ -1,0 +1,7 @@
+uuid: 0e69faa1-47ce-42cc-82af-361771fc8234
+langcode: cs
+status: true
+dependencies: {  }
+id: quotation
+label: Citace
+behavior_plugins: {  }

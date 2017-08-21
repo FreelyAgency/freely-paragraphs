@@ -1,0 +1,20 @@
+uuid: e04fa63d-e812-445b-b083-c226af7d94ba
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quotation.field_quotation
+    - paragraphs.paragraphs_type.quotation
+id: paragraph.quotation.default
+targetEntityType: paragraph
+bundle: quotation
+mode: default
+content:
+  field_quotation:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden: {  }

@@ -1,0 +1,7 @@
+uuid: 76574bd2-1068-4e55-835b-73a9ade42b80
+langcode: cs
+status: true
+dependencies: {  }
+id: video
+label: 'Odkaz na video'
+behavior_plugins: {  }

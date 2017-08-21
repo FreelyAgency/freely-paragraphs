@@ -1,0 +1,24 @@
+uuid: b71423c2-e1cf-4667-b424-9a470d667b6c
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_full_width.field_image
+    - paragraphs.paragraphs_type.image_full_width
+  module:
+    - image
+id: paragraph.image_full_width.default
+targetEntityType: paragraph
+bundle: image_full_width
+mode: default
+content:
+  field_image:
+    weight: 0
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden: {  }

@@ -1,0 +1,7 @@
+uuid: c9b4088d-fc79-4350-97f4-10ec1b5aa2f9
+langcode: cs
+status: true
+dependencies: {  }
+id: text_left_image_right
+label: 'Text + Obrázek (vpravo)'
+behavior_plugins: {  }

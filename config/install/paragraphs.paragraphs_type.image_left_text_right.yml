@@ -1,0 +1,7 @@
+uuid: e6e1f000-f339-44e9-baef-bb1c9117c4b9
+langcode: cs
+status: true
+dependencies: {  }
+id: image_left_text_right
+label: 'Obrázek (vlevo) + Text'
+behavior_plugins: {  }

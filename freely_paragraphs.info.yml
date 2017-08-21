@@ -1,0 +1,8 @@
+name: Freely Paragraphs
+type: module
+description: Freely paragraphs types
+core: 8.x
+package: Custom
+dependencies:
+  - paragraphs
+  - video_embed_field

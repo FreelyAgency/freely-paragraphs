@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains freely_paragraphs.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function freely_paragraphs_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the freely_paragraphs module.
+    case 'help.page.freely_paragraphs':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Freely paragraphs types') . '</p>';
+      return $output;
+
+    default:
+  }
+}

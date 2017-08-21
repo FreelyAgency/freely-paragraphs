@@ -1,0 +1,28 @@
+uuid: 38f2076a-05b3-45ed-bd04-99ed9e1a0059
+langcode: cs
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.article
+  module:
+    - entity_reference_revisions
+id: node.article.field_content
+field_name: field_content
+entity_type: node
+bundle: article
+label: Obsah
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    target_bundles_drag_drop:
+      text:
+        weight: 2
+        enabled: false
+field_type: entity_reference_revisions
