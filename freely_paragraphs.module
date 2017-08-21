@@ -5,20 +5,63 @@
  * Contains freely_paragraphs.module.
  */
 
-use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
- * Implements hook_help().
+ * Implements HOOK_theme_suggestions_HOOK_alter()
  */
-function freely_paragraphs_help($route_name, RouteMatchInterface $route_match) {
-  switch ($route_name) {
-    // Main module help for the freely_paragraphs module.
-    case 'help.page.freely_paragraphs':
-      $output = '';
-      $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Freely paragraphs types') . '</p>';
-      return $output;
+function freely_paragraphs_theme_suggestions_paragraph_alter(&$suggestions, $variables){
+  $entity = $variables['elements']['#paragraph'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+  $type = $entity->getType();
 
-    default:
+  $suggestions[] = 'paragraph__freely_paragraphs';
+  $suggestions[] = 'paragraph__freely_paragraphs__' . $type;
+  $suggestions[] = 'paragraph__freely_paragraphs__' . $type . '__' . $sanitized_view_mode;
+}
+
+/**
+ * Implements hook_theme()
+ */
+function freely_paragraphs_theme(){
+  $theme_templates = [];
+  $paragraph_types = freely_paragraphs_get_paragraph_types();
+
+  foreach ($paragraph_types as $type) {
+    $theme_templates['paragraph__freely_paragraphs__' . $type] = [
+      'base hook' => 'paragraph'
+    ];
   }
+
+  $theme_templates['paragraph__freely_paragraphs'] = [
+    'base hook' => 'paragraph'
+  ];
+
+  return $theme_templates;
+}
+
+
+/**
+ * Implements hook_theme_registry_alter()
+ */
+function freely_paragraphs_theme_registry_alter(&$theme_registry) {
+  $module_path = drupal_get_path('module', 'freely_paragraphs');
+  $template_objects = drupal_find_theme_templates($theme_registry, '.html.twig', $module_path);
+  $paragraph_types = freely_paragraphs_get_paragraph_types();
+
+  foreach ($paragraph_types as $type){
+    $template = 'paragraph__freely_paragraphs__' . $type;
+    // If it doesn't exist, remove it from the registry so we don't get any errors.
+    if(!isset($template_objects[$template])){
+      unset($theme_registry['paragraph__freely_paragraphs__' . $type]);
+    }
+  }
+}
+
+
+/**
+ * Get a list of paragraph types by machine name.
+ */
+function freely_paragraphs_get_paragraph_types(){
+  $paragraph_bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('paragraph');
+  return array_keys($paragraph_bundles);
 }
