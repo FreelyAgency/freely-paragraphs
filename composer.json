@@ -1,0 +1,13 @@
+{
+	"name": "FreelyAgency/freely-paragraphs",
+	"description": "Basic Drupal 8 paragraph styles.",
+	"authors": [
+		{
+			"name": "Freely Agency",
+			"homepage": "https://www.freely.agency/en"
+		}
+	],
+	"require": {
+		"php": ">=5.6.0"
+	}
+}
