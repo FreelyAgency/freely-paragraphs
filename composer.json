@@ -1,5 +1,6 @@
 {
 	"name": "FreelyAgency/freely-paragraphs",
+	"type": "drupal-module",
 	"description": "Basic Drupal 8 paragraph styles.",
 	"authors": [
 		{
