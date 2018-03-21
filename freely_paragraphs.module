@@ -46,6 +46,15 @@ function freely_paragraphs_theme_registry_alter(&$theme_registry) {
   $template_objects = drupal_find_theme_templates($theme_registry, '.html.twig', $module_path);
   $paragraph_types = freely_paragraphs_get_paragraph_types();
 
+  /** @var Drupal\Core\Theme\ActiveTheme $active_theme */
+  $active_theme = \Drupal::service('theme.manager')->getActiveTheme();
+  $theme_path = drupal_get_path('theme', $active_theme->getName());
+  $theme_template_objects = drupal_find_theme_templates($theme_registry, '.html.twig', $theme_path);
+
+  if (count($theme_template_objects) > 0) {
+    $template_objects = array_merge($template_objects, $theme_template_objects);
+  }
+
   foreach ($paragraph_types as $type) {
     $template = 'paragraph__freely_paragraphs__' . $type;
     // If it doesn't exist, remove it from the registry so
